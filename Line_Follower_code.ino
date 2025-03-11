@@ -11,12 +11,6 @@
 #define R_S 4  // Right IR Sensor  
 #define L_S 2  // Left IR Sensor  
 
-// Function Prototypes
-void forward();
-void turnRight();
-void turnLeft();
-void Stop();
-
 void setup() {  
     // Set IR sensor pins as input
     pinMode(R_S, INPUT);  
@@ -46,10 +40,10 @@ void loop() {
         forward();  // Move forward if both sensors detect black (on line)
     }   
     else if (rightSensor == 0 && leftSensor == 1) {
-        turnRight();  // Turn right if right sensor detects white
+        turnLeft();  // Turn left if right sensor detects white
     }   
     else if (rightSensor == 1 && leftSensor == 0) {
-        turnLeft();   // Turn left if left sensor detects white
+        turnRight();   // Turn right if left sensor detects white
     }   
     else if (rightSensor == 0 && leftSensor == 0) {
         Stop();  // Stop if both sensors detect white (off track)
